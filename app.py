@@ -19,11 +19,9 @@ st.write("Predict AQI for next **7 days, 7 weeks, or 1 month** using all trained
 @st.cache_resource
 def load_models():
     model_paths = {
-        "RandomForest": "Air_Model_POC/models/RandomForest.pkl",
-        "GradientBoosting": "Air_Model_POC/models/GradientBoosting.pkl",
-        "DecisionTree": "Air_Model_POC/models/DecisionTree.pkl",
-        "KNN": "Air_Model_POC/models/KNN.pkl",
-        "Best_Model": "Air_Model_POC/models/Best_Model.pkl"
+        "GradientBoosting": "GradientBoosting.pkl",
+        "DecisionTree": "DecisionTree.pkl",
+        "KNN": "KNN.pkl"
     }
 
     models = {}
@@ -33,7 +31,7 @@ def load_models():
         except:
             st.warning(f"⚠️ Missing model file: {path}")
 
-    scaler = joblib.load("Air_Model_POC/models/scaler.joblib")
+    scaler = joblib.load("scaler.joblib")
 
     return models, scaler
 
